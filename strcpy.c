@@ -1,20 +1,15 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
-char text();
-char main();
 
-char text()
-{
-    char palavra1[]= "tata";
-    return palavra1;
-}
-
-char main()
-{
-    char saida[50];
-    strcpy(saida,text());   // this line is supposed to copy the string from text to the var saida
-    printf("%s", saida);
-    return 0;
-}
+char *return_and_pass(char s[])	// OR char return_and_pass(char *s) 
+{ 
+	s[]='HIKE'; //modify passed string 
+	return s;	//return it 
+} 
+ 
+int main() 
+{ 
+	char a[]="Hello!"; 
+	printf("%s",return_and_pass(a)); 
+	return 0; 
+} 
