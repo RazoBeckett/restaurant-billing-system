@@ -251,11 +251,16 @@ void calculate()
     printf("---------------------------------------------------\n");
     
     // Place for order names
-    printf("%s                %d        0         %d\n", order1.name, order1.quantity, order1.price);
-    printf("%s                %d        0         %d\n", order2.name, order2.quantity, order2.price);
-    printf("%s                %d        0         %d\n", order3.name, order3.quantity, order3.price);
-    printf("%s                %d        0         %d\n", order4.name, order4.quantity, order4.price);
-    printf("%s                %d        0         %d\n", order5.name, order5.quantity, order5.price);
+    printf("%s %d %d\n", order1.name, order1.quantity, order1.price);
+    printf("%s %d %d\n", order2.name, order2.quantity, order2.price);
+    printf("%s %d %d\n", order3.name, order3.quantity, order3.price);
+    printf("%s %d %d\n", order4.name, order4.quantity, order4.price);
+    printf("%s %d %d\n", order5.name, order5.quantity, order5.price);
+    // printf("%s                %d        0         %d\n", order1.name, order1.quantity, order1.price);
+    // printf("%s                %d        0         %d\n", order2.name, order2.quantity, order2.price);
+    // printf("%s                %d        0         %d\n", order3.name, order3.quantity, order3.price);
+    // printf("%s                %d        0         %d\n", order4.name, order4.quantity, order4.price);
+    // printf("%s                %d        0         %d\n", order5.name, order5.quantity, order5.price);
 
     printf("---------------------------------------------------\n");
 
