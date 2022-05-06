@@ -8,7 +8,15 @@ void calculate();
 void canceled();
 // Global Variables
 int price, quantity, retry;
-char str2[20];
+
+// Global Structure.
+struct orders
+{
+    char name[25];
+    int price;
+    int quant;
+} order;
+
 void main()
 {
     system("cls");
@@ -18,7 +26,7 @@ void main()
 
 char printMenu()
 {
-    int order, x, r, land;
+    int order_input, x, r, land;
 
     if (retry == 1)
     {
@@ -36,16 +44,16 @@ char printMenu()
     printf("--------------------------\n");
 
     printf("\nWhat would you like to have?\n--> ");
-    scanf("%d", &order);
+    scanf("%d", &order_input);
 
-    switch (order)
+    switch (order_input)
     {
     case 1:
         printf("\nYou have selected Panner Masla.");
         printf("\nPlease Enter your Quantity\n--> ");
         scanf("%d", &quantity);
-
-        price = 80;
+        order.quant = quantity;
+        order.price = 40;
         printf("\nDo you want to add-on?(1-Yes, 2-No, 3-Cancel)\n--> ");
         scanf("%d", &r);
 
@@ -58,7 +66,7 @@ char printMenu()
         }
         else if (r == 2)
         {
-            char str1[] = "Panner Masala";
+            strcpy(order.name, "Panner Masla");
             calculate();
         }
 
@@ -76,7 +84,7 @@ char printMenu()
         printf("\nPlease Enter your Quantity\n--> ");
         scanf("%d", &quantity);
 
-        price = 80;
+        order.price = 45;
         land = quantity * 8.00;
 
         printf("\nDo you want to add-on?(1-Yes, 2-No, 3-Cancel)\n--> ");
@@ -108,7 +116,7 @@ char printMenu()
         printf("\nPlease Enter your Quantity\n--> ");
         scanf("%d", &quantity);
 
-        price = 80;
+        order.price = 50;
         land = quantity * 8.00;
 
         printf("\nDo you want to add-on?(1-Yes, 2-No, 3-Cancel)\n--> ");
@@ -140,7 +148,7 @@ char printMenu()
         printf("\nPlease Enter your Quantity\n--> ");
         scanf("%d", &quantity);
 
-        price = 80;
+        order.price = 70;
         land = quantity * 8.00;
 
         printf("\nDo you want to add-on?(1-Yes, 2-No, 3-Cancel)\n--> ");
@@ -172,7 +180,7 @@ char printMenu()
         printf("\nPlease Enter your Quantity\n--> ");
         scanf("%d", &quantity);
 
-        price = 80;
+        order.price = 80;
         land = quantity * 8.00;
 
         printf("\nDo you want to add-on?(1-Yes, 2-No, 3-Cancel)\n--> ");
@@ -235,10 +243,7 @@ canceled:
 void calculate()
 {
     int cgst, sgst, total;
-    char str2[20];
 
-    strcpy(str2, printMenu());
-    price = price * quantity;
     printf("              1 two ka four Restaurant\n");
     printf("        G.T ROAD, MURTHAL, SONIPAT, HARYANA\n");
     printf("         PHONE NO: 0130-2475585, 86071XXXXX\n");
@@ -247,15 +252,21 @@ void calculate()
     printf("Order Names                  Qty    Value    Price\n");
     printf("---------------------------------------------------\n");
     // Place for order names
-    printf("%s", str2);
+    printf("%s                %d        0         %d\n", order.name, order.quant, order.price);
     printf("---------------------------------------------------\n");
-    printf("SUBTOTAL                                      %3d\n", price);
-    sgst = price * 9 / 100; // adding sgst.
+
+    order.price = order.price * quantity; // adding quantity 
+    printf("SUBTOTAL                                      %3d\n", order.price);
+
+    sgst = order.price * 9 / 100; // adding sgst.
     printf("Add S GST(9.000%%) on XX.X                     %3d\n", sgst);
-    cgst = price * 9 / 100; // adding cgst.
+    
+    cgst = order.price * 9 / 100; // adding cgst.
     printf("Add C GST(9.000%%) on XX.X                     %3d\n", cgst);
-    total = sgst + cgst + price;                                          // addition of taxes to generate total amount.
+
+    total = sgst + cgst + order.price; // addition of taxes to generate total amount.
     printf("Ammount Incl of All Taxes                     %3d\n", total); // final amount would be displayed.
+
     printf("\n");
     printf("\n");
     printf("\n");
