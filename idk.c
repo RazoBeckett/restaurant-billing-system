@@ -252,11 +252,11 @@ void calculate()
     printf("---------------------------------------------------\n");
     printf("Order Names                  Qty    Value    Price\n");
     printf("---------------------------------------------------\n");
-
+    
     // Place for order names
     for (int i = 1; i < j; ++i)
     {
-        printf("%s %d %d\n", order[i].name, order[i].quantity, order[i].price);
+        printf("%s                  %d       0        %2d\n", order[i].name, order[i].quantity, order[i].price);
     }
 
     // printf("%s %d %d\n", order[2].name, order[2].quantity, order[2].price);
