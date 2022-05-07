@@ -7,7 +7,7 @@ char printMenu();
 void calculate();
 void canceled();
 // Global Variables
-int retry, i;
+int retry, i, j = 0;
 
 // Global Structure.
 struct orders
@@ -15,7 +15,7 @@ struct orders
     char name[25];
     int price;
     int quantity;
-} order1, order2, order3, order3, order4, order5;
+} order[5];
 
 void main()
 {
@@ -51,8 +51,8 @@ char printMenu()
     case 1:
         printf("\nYou have selected Panner Masla.");
         printf("\nPlease Enter your Quantity\n--> ");
-        scanf("%d", &order1.quantity);
-        order1.price = 40;
+        scanf("%d", &order[1].quantity);
+        order[1].price = 40;
         printf("\nDo you want to add-on?(1-Yes, 2-No, 3-Cancel)\n--> ");
         scanf("%d", &r);
 
@@ -60,13 +60,13 @@ char printMenu()
         {
             system("cls"); // clear screen.
             {
-                ++i;
                 printMenu();
             }
         }
         else if (r == 2)
         {
-            strcpy(order1.name, "Panner Masla");
+            j = j + 2;
+            strcpy(order[1].name, "Panner Masla");
             calculate();
         }
 
@@ -82,9 +82,9 @@ char printMenu()
     case 2:
         printf("\nYou have selected Shahi Panner.");
         printf("\nPlease Enter your Quantity\n--> ");
-        scanf("%d", &order2.quantity);
+        scanf("%d", &order[2].quantity);
 
-        order2.price = 45;
+        order[2].price = 45;
 
         printf("\nDo you want to add-on?(1-Yes, 2-No, 3-Cancel)\n--> ");
         scanf("%d", &r);
@@ -98,7 +98,8 @@ char printMenu()
         }
         else if (r == 2)
         {
-            strcpy(order2.name, "Shahi Panner");
+            j = j + 3;
+            strcpy(order[2].name, "Shahi Panner");
             calculate();
         }
 
@@ -114,8 +115,8 @@ char printMenu()
     case 3:
         printf("\nYou have selected Shevbahaji.");
         printf("\nPlease Enter your Quantity\n--> ");
-        scanf("%d", &order3.quantity);
-        order3.price = 50;
+        scanf("%d", &order[3].quantity);
+        order[3].price = 50;
 
         printf("\nDo you want to add-on?(1-Yes, 2-No, 3-Cancel)\n--> ");
         scanf("%d", &r);
@@ -129,7 +130,8 @@ char printMenu()
         }
         else if (r == 2)
         {
-            strcpy(order3.name, "Shevbhahaji");
+            j = j + 4;
+            strcpy(order[3].name, "Shevbhahaji");
             calculate();
         }
 
@@ -145,8 +147,8 @@ char printMenu()
     case 4:
         printf("\nYou have selected Chicken Biryani.");
         printf("\nPlease Enter your Quantity\n--> ");
-        scanf("%d", &order4.quantity);
-        order4.price = 70;
+        scanf("%d", &order[4].quantity);
+        order[4].price = 70;
 
         printf("\nDo you want to add-on?(1-Yes, 2-No, 3-Cancel)\n--> ");
         scanf("%d", &r);
@@ -160,7 +162,8 @@ char printMenu()
         }
         else if (r == 2)
         {
-            strcpy(order4.name, "Chicken Biryani");
+            j = j + 5;
+            strcpy(order[4].name, "Chicken Biryani");
             calculate();
         }
 
@@ -176,8 +179,8 @@ char printMenu()
     case 5:
         printf("\nYou have selected Chicken Kabab.");
         printf("\nPlease Enter your Quantity\n--> ");
-        scanf("%d", &order5.quantity);
-        order5.price = 80;
+        scanf("%d", &order[5].quantity);
+        order[5].price = 80;
 
         printf("\nDo you want to add-on?(1-Yes, 2-No, 3-Cancel)\n--> ");
         scanf("%d", &r);
@@ -186,13 +189,13 @@ char printMenu()
         {
             system("cls"); // clear screen.
             {
-                ++i;
                 printMenu();
             }
         }
         else if (r == 2)
         {
-            strcpy(order5.name, "Chicken Kabab");
+            j = j + 6;
+            strcpy(order[5].name, "Chicken Kabab");
             calculate();
         }
 
@@ -249,25 +252,29 @@ void calculate()
     printf("---------------------------------------------------\n");
     printf("Order Names                  Qty    Value    Price\n");
     printf("---------------------------------------------------\n");
-    
+
     // Place for order names
-    printf("%s %d %d\n", order1.name, order1.quantity, order1.price);
-    printf("%s %d %d\n", order2.name, order2.quantity, order2.price);
-    printf("%s %d %d\n", order3.name, order3.quantity, order3.price);
-    printf("%s %d %d\n", order4.name, order4.quantity, order4.price);
-    printf("%s %d %d\n", order5.name, order5.quantity, order5.price);
-    // printf("%s                %d        0         %d\n", order1.name, order1.quantity, order1.price);
-    // printf("%s                %d        0         %d\n", order2.name, order2.quantity, order2.price);
-    // printf("%s                %d        0         %d\n", order3.name, order3.quantity, order3.price);
-    // printf("%s                %d        0         %d\n", order4.name, order4.quantity, order4.price);
-    // printf("%s                %d        0         %d\n", order5.name, order5.quantity, order5.price);
+    for (int i = 1; i < j; ++i)
+    {
+        printf("%s %d %d\n", order[i].name, order[i].quantity, order[i].price);
+    }
+
+    // printf("%s %d %d\n", order[2].name, order[2].quantity, order[2].price);
+    // printf("%s %d %d\n", order[3].name, order[3].quantity, order[3].price);
+    // printf("%s %d %d\n", order[4].name, order[4].quantity, order[4].price);
+    // printf("%s %d %d\n", order[5].name, order[5].quantity, order[5].price);
+    // printf("%s                %d        0         %d\n", order[1].name, order[1].quantity, order[1].price);
+    // printf("%s                %d        0         %d\n", order[2].name, order[2].quantity, order[2].price);
+    // printf("%s                %d        0         %d\n", order[3].name, order[3].quantity, order[3].price);
+    // printf("%s                %d        0         %d\n", order[4].name, order[4].quantity, order[4].price);
+    // printf("%s                %d        0         %d\n", order[5].name, order[5].quantity, order[5].price);
 
     printf("---------------------------------------------------\n");
 
     // adding all order price together.
-    cal_price = order1.price + order2.price + order3.price + order4.price + order5.price;
+    cal_price = order[1].price + order[2].price + order[3].price + order[4].price + order[5].price;
     // adding all order quantity together.
-    cal_quantity = order1.quantity + order2.quantity + order3.quantity + order4.quantity + order5.quantity;
+    cal_quantity = order[1].quantity + order[2].quantity + order[3].quantity + order[4].quantity + order[5].quantity;
 
     cal_price = cal_price * cal_quantity; // adding quantity
     printf("SUBTOTAL                                      %3d\n", cal_price);
@@ -278,7 +285,7 @@ void calculate()
     cgst = cal_price * 9 / 100; // adding cgst.
     printf("Add C GST(9.000%%) on XX.X                     %3d\n", cgst);
 
-    total = sgst + cgst + cal_price;                                    // addition of taxes to generate total amount.
+    total = sgst + cgst + cal_price;                                      // addition of taxes to generate total amount.
     printf("Ammount Incl of All Taxes                     %3d\n", total); // final amount would be displayed.
 
     printf("\n");
@@ -288,5 +295,5 @@ void calculate()
     printf("\n");
     printf("              Thank You For Your Visit\n");
     printf("                 Have a nice day!\n\n");
-    system("pause");
+    // system("pause");
 }
