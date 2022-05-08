@@ -49,6 +49,7 @@ char printMenu()
     switch (order_input)
     {
     case 1:
+        strcpy(order[1].name, "Panner Masla");
         printf("\nYou have selected Panner Masla.");
         printf("\nPlease Enter your Quantity\n--> ");
         scanf("%d", &order[1].quantity);
@@ -66,7 +67,6 @@ char printMenu()
         else if (r == 2)
         {
             j = j + 2;
-            strcpy(order[1].name, "Panner Masla");
             calculate();
         }
 
@@ -80,6 +80,7 @@ char printMenu()
         }
         break;
     case 2:
+        strcpy(order[2].name, "Shahi Panner");
         printf("\nYou have selected Shahi Panner.");
         printf("\nPlease Enter your Quantity\n--> ");
         scanf("%d", &order[2].quantity);
@@ -99,7 +100,6 @@ char printMenu()
         else if (r == 2)
         {
             j = j + 3;
-            strcpy(order[2].name, "Shahi Panner");
             calculate();
         }
 
@@ -113,6 +113,7 @@ char printMenu()
         }
         break;
     case 3:
+        strcpy(order[3].name, "Shevbhahaji");
         printf("\nYou have selected Shevbahaji.");
         printf("\nPlease Enter your Quantity\n--> ");
         scanf("%d", &order[3].quantity);
@@ -131,7 +132,6 @@ char printMenu()
         else if (r == 2)
         {
             j = j + 4;
-            strcpy(order[3].name, "Shevbhahaji");
             calculate();
         }
 
@@ -145,6 +145,7 @@ char printMenu()
         }
         break;
     case 4:
+        strcpy(order[4].name, "Chicken Biryani");
         printf("\nYou have selected Chicken Biryani.");
         printf("\nPlease Enter your Quantity\n--> ");
         scanf("%d", &order[4].quantity);
@@ -163,7 +164,6 @@ char printMenu()
         else if (r == 2)
         {
             j = j + 5;
-            strcpy(order[4].name, "Chicken Biryani");
             calculate();
         }
 
@@ -177,6 +177,7 @@ char printMenu()
         }
         break;
     case 5:
+        strcpy(order[5].name, "Chicken Kabab");
         printf("\nYou have selected Chicken Kabab.");
         printf("\nPlease Enter your Quantity\n--> ");
         scanf("%d", &order[5].quantity);
@@ -195,7 +196,6 @@ char printMenu()
         else if (r == 2)
         {
             j = j + 6;
-            strcpy(order[5].name, "Chicken Kabab");
             calculate();
         }
 
@@ -252,7 +252,7 @@ void calculate()
     printf("---------------------------------------------------\n");
     printf("Order Names                  Qty    Value    Price\n");
     printf("---------------------------------------------------\n");
-    
+
     // Place for order names
     for (int i = 1; i < j; ++i)
     {
