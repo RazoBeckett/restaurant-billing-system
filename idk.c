@@ -32,7 +32,7 @@ char printMenu()
     {
         system("cls");
     }
-
+    
     printf("\n-----------Menu-----------\n");
     printf("   Name              Price\n");
     printf("1. Panner Masla      40rs\n");
@@ -258,16 +258,6 @@ void calculate()
     {
         printf("%-30s%d       0        %2d\n", order[i].name, order[i].quantity, order[i].price);
     }
-
-    // printf("%s %d %d\n", order[2].name, order[2].quantity, order[2].price);
-    // printf("%s %d %d\n", order[3].name, order[3].quantity, order[3].price);
-    // printf("%s %d %d\n", order[4].name, order[4].quantity, order[4].price);
-    // printf("%s %d %d\n", order[5].name, order[5].quantity, order[5].price);
-    // printf("%s                %d        0         %d\n", order[1].name, order[1].quantity, order[1].price);
-    // printf("%s                %d        0         %d\n", order[2].name, order[2].quantity, order[2].price);
-    // printf("%s                %d        0         %d\n", order[3].name, order[3].quantity, order[3].price);
-    // printf("%s                %d        0         %d\n", order[4].name, order[4].quantity, order[4].price);
-    // printf("%s                %d        0         %d\n", order[5].name, order[5].quantity, order[5].price);
 
     printf("---------------------------------------------------\n");
 
