@@ -13,7 +13,7 @@ int retry, i, j = 0;
 struct orders
 {
     char name[25];
-    int price;
+    float price;
     int quantity;
 } order[5];
 
@@ -32,7 +32,7 @@ char printMenu()
     {
         system("cls");
     }
-    
+
     printf("\n-----------Menu-----------\n");
     printf("   Name              Price\n");
     printf("1. Panner Masla      40rs\n");
@@ -50,10 +50,10 @@ char printMenu()
     {
     case 1:
         strcpy(order[1].name, "Panner Masla");
+        order[1].price = 40;
         printf("\nYou have selected Panner Masla.");
         printf("\nPlease Enter your Quantity\n--> ");
         scanf("%d", &order[1].quantity);
-        order[1].price = 40;
         printf("\nDo you want to add-on?(1-Yes, 2-No, 3-Cancel)\n--> ");
         scanf("%d", &r);
 
@@ -81,11 +81,10 @@ char printMenu()
         break;
     case 2:
         strcpy(order[2].name, "Shahi Panner");
+        order[2].price = 45;
         printf("\nYou have selected Shahi Panner.");
         printf("\nPlease Enter your Quantity\n--> ");
         scanf("%d", &order[2].quantity);
-
-        order[2].price = 45;
 
         printf("\nDo you want to add-on?(1-Yes, 2-No, 3-Cancel)\n--> ");
         scanf("%d", &r);
@@ -243,9 +242,9 @@ canceled:
 
 void calculate()
 {
-    int cgst, sgst, total, cal_order, cal_price, cal_quantity;
+    float cgst, sgst, total, cal_order, cal_price, cal_quantity;
 
-    printf("              1 two ka four Restaurant\n");
+    printf("                 Golden Era Hotel\n");
     printf("        G.T ROAD, MURTHAL, SONIPAT, HARYANA\n");
     printf("         PHONE NO: 0130-2475585, 86071XXXXX\n");
     printf("             GSTIN: 06ABIFS38901K1Z3\n");
@@ -256,27 +255,27 @@ void calculate()
     // Place for order names
     for (int i = 1; i < j; ++i)
     {
-        printf("%-30s%d       0        %2d\n", order[i].name, order[i].quantity, order[i].price);
+        printf("%-30s%2d       0     %2.2f\n", order[i].name, order[i].quantity, order[i].price);
     }
 
     printf("---------------------------------------------------\n");
 
     // adding all order price together.
-    cal_price = order[1].price + order[2].price + order[3].price + order[4].price + order[5].price;
+    cal_price = order[1].price*order[1].quantity + order[2].price*order[2].quantity + order[3].price*order[3].quantity + order[4].price*order[4].quantity + order[5].price*order[5].quantity;
     // adding all order quantity together.
-    cal_quantity = order[1].quantity + order[2].quantity + order[3].quantity + order[4].quantity + order[5].quantity;
-
-    cal_price = cal_price * cal_quantity; // adding quantity
-    printf("SUBTOTAL                                      %3d\n", cal_price);
+    // cal_quantity = order[1].quantity + order[2].quantity + order[3].quantity + order[4].quantity + order[5].quantity;
+    
+    // cal_price = cal_price * cal_quantity; // adding quantity
+    printf("SUBTOTAL                                     %3.2f\n", cal_price);
 
     sgst = cal_price * 9 / 100; // adding sgst.
-    printf("Add S GST(9.000%%) on XX.X                     %3d\n", sgst);
+    printf("Add S GST(9.000%%) on XX.X                     %3.2f\n", sgst);
 
     cgst = cal_price * 9 / 100; // adding cgst.
-    printf("Add C GST(9.000%%) on XX.X                     %3d\n", cgst);
+    printf("Add C GST(9.000%%) on XX.X                     %3.2f\n", cgst);
 
     total = sgst + cgst + cal_price;                                      // addition of taxes to generate total amount.
-    printf("Ammount Incl of All Taxes                     %3d\n", total); // final amount would be displayed.
+    printf("Ammount Incl of All Taxes                    %3.2f\n", total); // final amount would be displayed.
 
     printf("\n");
     printf("\n");
