@@ -1,5 +1,5 @@
 *.exe
-important_git_commands.txt
+*.txt
 *.ini
 jay_solutions.c
 testing.c
