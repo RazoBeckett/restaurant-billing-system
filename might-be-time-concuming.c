@@ -1,3 +1,9 @@
+/*
+Restaurant Billing System
+FYCM-I      Batch: C
+group members: Sanket Patil(53), Swaraj Pawar(55), Mayur Raut(56), Jay Shimpi(59), Chaitanya Sonawane(62)
+*/
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
