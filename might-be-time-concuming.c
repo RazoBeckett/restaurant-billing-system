@@ -43,8 +43,8 @@ main_menu:
         printf("--------------------------\n");
         goto main_menu;
         break;
-    case 2:
     placeOrder:
+    case 2:
         int order_input, r;
         printf("\nWhat would you like to have?\n--> ");
         scanf("%d", &order_input);
@@ -249,7 +249,7 @@ main_menu:
         printf("\tOrder Names                  Qty    Price    Value\n");
         printf("\t----------------------------------------------------\n");
 
-        // Place for order names
+        /*Place for order names, value, price*/
         if (strlen(order[1].name) == 12)
         {
             printf("\t%-29s%2d     %3.2f    %3.2f\n", order[1].name, order[1].quantity, order[1].price, (order[1].price * order[1].quantity));
@@ -282,8 +282,8 @@ main_menu:
         cgst = cal_price * 9 / 100; // adding cgst.
         printf("\tAdd C GST(9.000%%) on %3.2f                    %3.2f\n", cal_price, cgst);
 
-        total = sgst + cgst + cal_price;                                         // addition of taxes to generate total amount.
-        printf("\tAmmount Incl of All Taxes                    %3.2f\n", total); // final amount would be displayed.
+        total = sgst + cgst + cal_price;
+        printf("\tAmmount Incl of All Taxes                    %3.2f\n", total);
         printf("\n");
         printf("\n");
         printf("\n");
@@ -291,6 +291,7 @@ main_menu:
         printf("\n");
         printf("\t              Thank You For Your Visit\n");
         printf("\t                 Have A Nice Day!\n\n");
+        goto main_menu;
         break;
     case 4:
         exit(0);
