@@ -4,17 +4,17 @@
 
 // Global Variables
 int retry, i, j;
-int no1, no2, no3, no4, no5;
 void canceled();
+
+struct orders
+{
+    char name[25];
+    float price;
+    int quantity;
+} order[6];
 
 void main()
 {
-    struct orders
-    {
-        char name[25];
-        float price;
-        int quantity;
-    } order[6];
     int main_switch;
 
     if (main_switch == 0)
@@ -74,7 +74,6 @@ main_menu:
             }
             else if (r == 2)
             {
-                no1 = 1;
                 printf("----------------------------------------------------\n");
                 main();
             }
@@ -110,7 +109,6 @@ main_menu:
             }
             else if (r == 2)
             {
-                no2 = 1;
                 printf("----------------------------------------------------\n");
                 main();
             }
@@ -146,7 +144,6 @@ main_menu:
             }
             else if (r == 2)
             {
-                no3 = 1;
                 printf("----------------------------------------------------\n");
                 main();
             }
@@ -182,7 +179,6 @@ main_menu:
             }
             else if (r == 2)
             {
-                no4 = 1;
                 printf("----------------------------------------------------\n");
                 main();
             }
@@ -218,7 +214,6 @@ main_menu:
             }
             else if (r == 2)
             {
-                no5 = 1;
                 printf("----------------------------------------------------\n");
                 main();
             }
@@ -255,25 +250,25 @@ main_menu:
         printf("\t----------------------------------------------------\n");
 
         // Place for order names
-        if (no1 == 1)
+        if (strlen(order[1].name) == 12)
         {
             printf("\t%-29s%2d     %3.2f    %3.2f\n", order[1].name, order[1].quantity, order[1].price, (order[1].price * order[1].quantity));
         }
-        if (no2 == 1)
+        if (strlen(order[2].name) == 12)
         {
-            printf("\t%-29s%2d     %3.2f    %3.2f\n", order[i].name, order[i].quantity, order[i].price, (order[i].price * order[i].quantity));
+            printf("\t%-29s%2d     %3.2f    %3.2f\n", order[2].name, order[2].quantity, order[2].price, (order[2].price * order[2].quantity));
         }
-        if (no3 == 1)
+        if (strlen(order[3].name) == 11)
         {
-            printf("\t%-29s%2d     %3.2f    %3.2f\n", order[i].name, order[i].quantity, order[i].price, (order[i].price * order[i].quantity));
+            printf("\t%-29s%2d     %3.2f    %3.2f\n", order[3].name, order[3].quantity, order[3].price, (order[3].price * order[3].quantity));
         }
-        if (no4 == 1)
+        if (strlen(order[4].name) == 15)
         {
-            printf("\t%-29s%2d     %3.2f    %3.2f\n", order[i].name, order[i].quantity, order[i].price, (order[i].price * order[i].quantity));
+            printf("\t%-29s%2d     %3.2f    %3.2f\n", order[4].name, order[4].quantity, order[4].price, (order[4].price * order[4].quantity));
         }
-        if (no5 == 1)
+        if (strlen(order[5].name) == 13)
         {
-            printf("\t%-29s%2d     %3.2f    %3.2f\n", order[i].name, order[i].quantity, order[i].price, (order[i].price * order[i].quantity));
+            printf("\t%-29s%2d     %3.2f    %3.2f\n", order[5].name, order[5].quantity, order[5].price, (order[5].price * order[5].quantity));
         }
         printf("\t----------------------------------------------------\n");
 
