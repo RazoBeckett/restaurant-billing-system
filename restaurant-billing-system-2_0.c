@@ -18,7 +18,22 @@ struct orders
 void main()
 {
     int main_switch, order_input, r;
-    printf("\tWelcome To Golden Era Hotel\n");
+    printf("\n\t=================================================");
+    printf("\n\t|                    WELCOME                    |");
+    printf("\n\t|            -------------------------          |");
+    printf("\n\t|            RESTAURANT BILLING SYSTEM          |");
+    printf("\n\t|            -------------------------          |");
+    printf("\n\t|              GOLDEN ERA RESTAURANT            |");
+    printf("\n\t|                                               |");
+    printf("\n\t|                                               |");
+    printf("\n\t|                                               |");
+    printf("\n\t|                                               |");
+    printf("\n\t|                                               |");
+    printf("\n\t|                                               |");
+    printf("\n\t|                                               |");
+    printf("\n\t=================================================");
+    printf("\n\tPress Enter To Continue........\n\n");
+    getchar();
     do
     {
         printf("\n1.Read our menu\n");
