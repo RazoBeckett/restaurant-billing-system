@@ -1,8 +1,10 @@
 /*
 Restaurant Billing System
 FYCM-I      Batch: C
-group members: Sanket Patil(53), Swaraj Pawar(55), Mayur Raut(56), Jay Shimpi(59), Chaitanya Sonawane(62)
-*/
+group members: Sanket Patil(53)          Swaraj Pawar(55)
+               Mayur Raut(56)            Jay Shimpi(59)
+			   Chaitanya Sonawane(62)
+ */
 
 #include <stdio.h>
 #include <string.h>
@@ -12,12 +14,13 @@ struct orders
 {
     char name[25];
     float price;
-    int quantity;
+    int quantity;    
 } order[6];
 
 void main()
 {
-    int main_switch, order_input, r;
+    int main_switch, order_input, r,check;
+    float cgst, sgst, total, cal_order, cal_price, cal_quantity;
     printf("\n\t=================================================");
     printf("\n\t|                    WELCOME                    |");
     printf("\n\t|            -------------------------          |");
@@ -45,9 +48,10 @@ void main()
         switch (main_switch)
         {
         case 1:
+        	check=1;
             printf("\n-----------Menu-----------\n");
             printf("   Name              Price\n");
-            printf("1. Panner Masla      40rs\n");
+            printf("1. Paneer Masala     40rs\n");
             printf("2. Shahi Panner      45rs\n");
             printf("3. Shevbahaji        50rs\n");
             printf("4. Chicken Biryani   70rs\n");
@@ -56,12 +60,23 @@ void main()
             getch();
             break;
         case 2:
-            printf("\nWhat would you like to have?\n--> ");
+        	if(check!=1){
+        	printf("\n-----------Menu-----------\n");
+            printf("   Name              Price\n");
+            printf("1. Paneer Masala     40rs\n");
+            printf("2. Shahi Panner      45rs\n");
+            printf("3. Shevbahaji        50rs\n");
+            printf("4. Chicken Biryani   70rs\n");
+            printf("5. Chicken Kabab     80rs\n");
+            printf("--------------------------\n");
+			}
+			
+            printf("\nWhat would you like to order?\n--> ");
             scanf("%d", &order_input);
             switch (order_input)
             {
             case 1:
-                strcpy(order[1].name, "Panner Masla");
+                strcpy(order[1].name, "Paneer Masla");
                 order[1].price = 40;
                 printf("\nYou have selected Panner Masla.");
                 printf("\nPlease Enter your Quantity\n--> ");
@@ -102,8 +117,6 @@ void main()
             }
             break;
         case 3:
-            float cgst, sgst, total, cal_order, cal_price, cal_quantity;
-
             printf("\n\n\t                 Golden Era Hotel\n");
             printf("\t        G.T ROAD, MURTHAL, SONIPAT, HARYANA\n");
             printf("\t         PHONE NO: 0130-2475585, 86071XXXXX\n");
@@ -140,17 +153,17 @@ void main()
             printf("\tSUBTOTAL                                     %3.2f\n", cal_price);
 
             sgst = cal_price * 9 / 100; // adding sgst.
-            printf("\tAdd S GST(9.000%%) on %3.2f                    %3.2f\n", cal_price, sgst);
+            printf("\tAdd S GST(9.000%%) on %3.2f                  %3.2f\n", cal_price, sgst);
 
             cgst = cal_price * 9 / 100; // adding cgst.
-            printf("\tAdd C GST(9.000%%) on %3.2f                    %3.2f\n", cal_price, cgst);
+            printf("\tAdd C GST(9.000%%) on %3.2f                  %3.2f\n", cal_price, cgst);
 
             total = sgst + cgst + cal_price;
             printf("\tAmmount Incl of All Taxes                    %3.2f\n", total);
             printf("\n");
             printf("\n");
             printf("\n");
-            printf("\tCahier: Jack                              E & O E\n");
+            printf("\tCashier: Jack                             E & O E\n");
             printf("\n");
             printf("\t              Thank You For Your Visit\n");
             printf("\t                 Have A Nice Day!\n\n");
