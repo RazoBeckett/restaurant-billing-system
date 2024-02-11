@@ -1,6 +1,7 @@
 *.exe
 *.txt
 *.ini
+*.sh
 jay_solutions.c
 testing.c
 test*.c
