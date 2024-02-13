@@ -14,7 +14,7 @@ void displayMenu() {
     printf("   Name              Price\n");
     printf("1. Paneer Masala     40rs\n");
     printf("2. Shahi Paneer      45rs\n");
-    printf("3. Shev Bhaji         50rs\n");
+    printf("3. Shev Bhaji        50rs\n");
     printf("4. Chicken Biryani   70rs\n");
     printf("5. Chicken Kabab     80rs\n");
     printf("--------------------------\n");
